@@ -27,7 +27,11 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             }, {
                 value: 'addCSSFolder',
                 name: 'css',
-                checked: false
+                checked: true
+            }, {
+                value: 'addSCSSFolder',
+                name: 'scss',
+                checked: true
             }, {
                 value: 'addDirectivesFolder',
                 name: 'directives',
@@ -39,11 +43,11 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             }, {
                 value: 'addImagesFolder',
                 name: 'img',
-                checked: false
+                checked: true
             }, {
                 value: 'addServicesFolder',
                 name: 'services',
-                checked: true
+                checked: false
             }, {
                 value: 'addTestsFolder',
                 name: 'tests',
@@ -59,6 +63,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             this.addConfigFolder = this._.contains(props.folders, 'addConfigFolder');
             this.addControllersFolder = this._.contains(props.folders, 'addControllersFolder');
             this.addCSSFolder = this._.contains(props.folders, 'addCSSFolder');
+            this.addSCSSFolder = this._.contains(props.folders, 'addSCSSFolder');
             this.addDirectivesFolder = this._.contains(props.folders, 'addDirectivesFolder');
             this.addFiltersFolder = this._.contains(props.folders, 'addFiltersFolder');
             this.addImagesFolder = this._.contains(props.folders, 'addImagesFolder');
@@ -78,6 +83,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         if (this.addConfigFolder) this.mkdir('app/modules/' + this.slugifiedName + '/config');
         if (this.addControllersFolder) this.mkdir('app/modules/' + this.slugifiedName + '/controllers');
         if (this.addCSSFolder) this.mkdir('app/modules/' + this.slugifiedName + '/css');
+        if (this.addSCSSFolder) this.mkdir('app/modules/' + this.slugifiedName + '/scss');
         if (this.addDirectivesFolder) this.mkdir('app/modules/' + this.slugifiedName + '/directives');
         if (this.addFiltersFolder) this.mkdir('app//modules/' + this.slugifiedName + '/filters');
         if (this.addImagesFolder) this.mkdir('app/modules/' + this.slugifiedName + '/img');
